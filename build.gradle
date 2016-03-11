@@ -15,7 +15,12 @@ apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
 apply plugin: 'io.spring.dependency-management'
+apply plugin: 'war'
 
+war {
+    baseName = 'myapp'
+    version =  '0.5.0'
+}
 jar {
 	baseName = 'masterSpringMvc'
 	version = '0.0.1-SNAPSHOT'

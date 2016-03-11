@@ -40,16 +40,13 @@ public class TweetController {
         if (search.toLowerCase().contains("struts")) {
             redirectAttributes.addFlashAttribute("error", "Try using spring instead!");
             return "redirect:/";
-        } else {
-            return "";
         }
         redirectAttributes.addAttribute("search", search);
         return "redirect:result";
     }
 
     @RequestMapping("/result")
-    public String hello(@RequestParam(defaultValue = "masterSpringMVC4") String search, Model model) {
-        SearchResults searchResults = twitter.searchOperations().search(search);
+    public String hello(@RequestParam(defaultValue = "masterSpringMVC4") String search, Model model) {SearchResults searchResults = twitter.searchOperations().search(search);
         List<Tweet> tweets = searchResults.getTweets();
         model.addAttribute("tweets", tweets);
         model.addAttribute("search", search);
